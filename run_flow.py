@@ -12,14 +12,14 @@ async def run_flow():
     }
 
     try:
-        prompt = input("Enter your prompt: ")
-
+        #prompt = input("Enter your prompt: ")
+        prompt = "我想每天基于 Twitter 热点趋势⽣成3条短内容1个图⽂贴，并在最佳时间⾃动发出。"
         if prompt.strip().isspace() or not prompt:
             logger.warning("Empty prompt provided.")
             return
 
         flow = FlowFactory.create_flow(
-            flow_type=FlowType.PLANNING,
+            flow_type=FlowType.TWITTER_PLANNING,
             agents=agents,
         )
         logger.warning("Processing your request...")

@@ -4,10 +4,11 @@ from typing import Dict, List, Union
 from app.agent.base import BaseAgent
 from app.flow.base import BaseFlow
 from app.flow.planning import PlanningFlow
-
+from app.flow.twitter_planning_flow import TwitterPlanningFlow
 
 class FlowType(str, Enum):
     PLANNING = "planning"
+    TWITTER_PLANNING = "twitter_planning"
 
 
 class FlowFactory:
@@ -21,6 +22,7 @@ class FlowFactory:
     ) -> BaseFlow:
         flows = {
             FlowType.PLANNING: PlanningFlow,
+            FlowType.TWITTER_PLANNING: TwitterPlanningFlow,
         }
 
         flow_class = flows.get(flow_type)

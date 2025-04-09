@@ -177,7 +177,7 @@ class ToolCallAgent(ReActAgent):
 
             # Execute the tool
             logger.info(f"🔧 Activating tool: '{name}'...")
-            result = await self.available_tools.execute(name=name, tool_input=args)
+            result = await self.available_tools.execute(name=name, tool_input=args if isinstance(args, dict) else json.loads(args))
 
             # Handle special tools
             await self._handle_special_tool(name=name, result=result)

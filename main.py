@@ -1,11 +1,12 @@
 import asyncio
 
 from app.agent.manus import Manus
+from app.agent.planning import PlanningAgent
 from app.logger import logger
 
 
 async def main():
-    agent = Manus()
+    agent = PlanningAgent()
     try:
         prompt = input("Enter your prompt: ")
         if not prompt.strip():
